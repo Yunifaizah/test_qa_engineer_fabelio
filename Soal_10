@@ -1,0 +1,25 @@
+<html>
+<script>
+function selectarchive(){
+	var putfile= document.getElementById("file").value; 
+	document.getElementById("filename").value=putfile ;
+
+	var metarch=document.getElementById("methode");
+	document.getElementById("archive").value=metarch.options[metarch.selectedIndex].text; 
+}
+
+</script>
+<body>
+<form>
+<p>Input your file : <input type="text" id="file"></p>	
+Select your methode archive : 
+<select id="methode" onchange="selectarchive()">
+<option>Zip</option> 
+<option>Rar</option> 	
+</select>
+
+</p>Your file :  <input type="text" id="filename"></p>
+<p>and methode archive : <input type="text" id="archive">
+</form>
+</body>
+</html>
