@@ -1,0 +1,23 @@
+
+//Cessi
+
+describe('Produk', function() {
+  it('Beli Produk', function() {
+    cy.visit('https://qa.fabelio.com/');   
+    cy.get('input.search').type('Cessi');
+    cy.get('search_mini_form').click();
+    cy.get('product-5779').click();
+    cy.get('product-addtocart-button').click();
+  })
+})
+
+
+//Kursi Kantor Alpha
+describe('Produk', function() {
+  it('Beli Produk', function() {
+    cy.visit('https://qa.fabelio.com/');   
+    cy.get('input.search').type('Kursi Kantor Alpha');
+    cy.get('search_mini_form').click();
+    cy.get('product-addtocart-button').click();
+  })
+})
