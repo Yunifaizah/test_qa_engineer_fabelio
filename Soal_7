@@ -1,0 +1,66 @@
+//Scenario 1 : Produk tidak ditemukan
+
+require 'watir-webdriver'
+
+require 'colorize'
+
+browser = Watir::Browser.new
+
+Given (/^Saya berada di Home Page QA Fabelio$/)do
+
+browser.goto "http://qa.fabelio.com/"
+
+end
+
+When (/^Input produk yang tidak tersedia$/)do
+
+browser.text_field(:name,"search").set("yaya")
+
+browser.button(:name,"search_mini_form").click
+
+end
+
+Then (/^Error message produk tidak ditemukan tampil$/)do
+
+puts " Produk tidak ditemukan".red
+
+browser.close
+
+end
+
+
+//Scenario 2 : Login empty
+
+require 'watir-webdriver'
+
+require 'colorize'
+
+browser = Watir::Browser.new
+
+Given (/^Saya berada di Home Page QA Fabelio$/)do
+
+browser.goto "http://qa.fabelio.com/"
+
+end
+
+browser.button(:name,"navbar-container").click
+
+When (/^Input alamat email$/)do
+
+browser.text_field(:name,"email").set("")
+
+And (/^Input password$/)do
+
+browser.text_field(:name,"pass").set("")
+
+browser.button(:name,"send2").click
+
+end
+
+Then (/^Error message tampil$/)do
+
+puts "This is a required field.".red
+
+browser.close
+
+end
